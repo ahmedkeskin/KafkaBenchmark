@@ -16,12 +16,17 @@ namespace KafkaTest
                 while (true)
                 {
                     //kafka.Produce("general-super-star", "my-key", DateTime.Now.Ticks.ToString());
-                    kafka.ProduceAsync("general-super-star", "my-key", DateTime.Now.Ticks.ToString());
-                    //Thread.Sleep(1);
+                    //kafka.ProduceAsync("general-super-star", "my-key", DateTime.Now.Ticks.ToString());
+                    //kafka.ProduceAsync("general-super-star", "my-key1", DateTime.Now.Ticks.ToString());
+                    //kafka.ProduceAsync("general-super-star", "my-key2", DateTime.Now.Ticks.ToString());
+                    //kafka.ProduceAsync("general-super-star", "my-key3", DateTime.Now.Ticks.ToString());
+                    //kafka.ProduceAsync("general-super-star", "my-key4", DateTime.Now.Ticks.ToString());
+                    kafka.ProduceAsync("second-topic", "my-key5", DateTime.Now.Ticks.ToString());
+                    Thread.Sleep(10);
                 }
             });
 
-            kafka.Consume("general-super-star");
+            kafka.Consume("second-topic");
         }
 
         private void Kafka_OnMessageArrived(object? sender, OnGetMessageArgs e)

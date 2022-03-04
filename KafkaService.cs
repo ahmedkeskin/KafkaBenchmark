@@ -14,9 +14,9 @@ namespace KafkaTest
     internal class KafkaService
     {
 
-        private readonly string _kafkaServer = "localhost:9092";
+        private readonly string _kafkaServer = "192.168.1.86:9092";
         private readonly string _consumerGroupId = "super-stars";
-        private readonly string _clientId = "aspirin";
+        private readonly string _clientId = "xanax";
 
         private readonly ProducerConfig _producerConfig;
         private readonly ConsumerConfig _consumerConfig;
@@ -54,7 +54,7 @@ namespace KafkaTest
             try
             {
                 var messageString = JsonSerializer.Serialize<T>(messageObject);
-                return new Message<string, string>() { Key = messageKey, Value = messageString };
+                return new Message<string, string>() { Key = null, Value = messageString };
             }
             catch (Exception exception)
             {
